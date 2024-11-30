@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body style="font-family: Montserrat;">
+    <h4 style="border-bottom: 1px #234343 solid; margin-left: 3%; margin-bottom:0%">FYRRE MAGAZINE</h4>
+    <div style="margin-left: 3%; margin-right: 3%;">
+        <h1 style="font-size: 160px; margin-top:0%;margin-bottom: 0%; text-align: center;"><strong>ART & LIFE</strong>
+        </h1>
+        <div
+            style="color:aliceblue; background-color: black;display: flex; align-items: center; justify-content: space-around;">
+            <h4><strong>New Ticket +++</strong></h4>
+            <p>The lastest products +++</p>
+            <p>The lastest products +++</p>
+            <p>The lastest products +++</p>
+            <p>The lastest products +++</p>
+            <p>The lastest products +++</p>
+        </div>
+        <div style="display:flex; align-items: center;justify-content: space-around;">
+            <h2 style="flex:1; font-size: 90px;">DON'T CLOSE YOUR EYES</h2>
+            <div style="flex:1;">
+                <P>Transform your beauty routine with [Mermaid Tear], the ultimate choice for those who desire a
+                    flawless, glowing complexion. Crafted with care, our innovative formula combines natural ingredients
+                    with cutting-edge technology to nourish your skin while enhancing your natural beauty.</P>
+                <div style="display:flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap:20px;">
+                        <div style="display: flex; gap:10px;">
+                            <p><strong>Text</strong></p>
+                            <p>Tran Dang</p>
+                        </div>
+                        <div style="display: flex; gap:10px;">
+                            <p><strong>Date</strong></p>
+                            <p>November 14th 2024</p>
+                        </div>
+                        <div style="display: flex; gap:10px;">
+                            <p><strong>Duration</strong></p>
+                            <p>1 minutes</p>
+                        </div>
+                    </div>
+                    <button style="border-radius: 35px; padding-left: 1%; padding-right: 1%">Label</button>
+                </div>
+            </div>
+
+        </div>
+        <img style="width: 100%; margin-bottom: 50px;"
+            src="{{url_for('static', filename = 'Image/dimitar-belchev-fRBpWLAcWIY-unsplash 1.png')}}" alt="">
+        <section style="display: flex; gap: 80px">
+            <div class="CrazyLink">
+                { % for row in rows %}
+                <article style="display: flex; gap: 48px; justify-content: space-between;">
+                    <img src="{{url_for('image')}}" alt="">
+                    <div>
+                        <h4><strong>{{row['name']}}</strong></h4>
+                        <p>{{row['discription']}}</p>
+                        <div style="display: flex; justify-content: space-between;align-items: center;">
+                            <div style="display: flex; gap:20px;">
+                                <div style="display: flex; gap:10px;">
+                                    <p><strong>Author</strong></p>
+                                    <p>{{row['author']}}</p>
+                                </div>
+                                <div style="display: flex; gap:10px;">
+                                    <p><strong>Date</strong></p>
+                                    <p>{{row['date']}}</p>
+                                </div>
+                                <div style="display: flex; gap:10px;">
+                                    <p><strong>Duration</strong></p>
+                                    <p>{{row['duration']}}</p>
+                                </div>
+                            </div>
+                            <button
+                                style="border-radius: 35px; padding-left: 40px; padding-right: 40px; height: 32px;">{{row['category']}}</button>
+                        </div>
+                    </div>
+                </article>
+                <hr style=" margin-top: 24px; margin-bottom: 24px;">
+                {% endfor %}
+            </div>
+            <div>
+                <p><strong>Printmagazine</strong></p>
+                <h5>03/2022</h5>
+                <img src="{{url_for('static', filename = 'Image/mojtaba-mosayebzadeh-V9mVXYKGyxc-unsplash 1.png')}}"
+                    alt="">
+                <button style="background-color: black; color: beige; padding: 15.5px 24px;">Button</button>
+                <h5>Most Popular</h5>
+                <article style="display: flex; gap: 30px; ">
+                    <h3>01</h3>
+                    <div>
+                        <h4>Street art festivals</h4>
+                        <p><strong>Text</strong>&nbsp;Cristofer Vaccaro</p>
+                    </div>
+                </article>
+                <hr>
+                <article style="display: flex; gap: 30px; ">
+                    <h3>02</h3>
+                    <div>
+                        <h4>Leading the success</h4>
+                        <p><strong>Text</strong>&nbsp;Cristofer Vaccaro</p>
+                    </div>
+                </article>
+                <hr>
+                <article style="display: flex; gap: 30px; ">
+                    <h3>03</h3>
+                    <div>
+                        <h4>Cruines Mummy</h4>
+                        <p><strong>Text</strong>&nbsp;Cristofer Vaccaro</p>
+                    </div>
+                </article>
+                <article
+                    style=" background-color: rgba(74, 74, 72, 0.5); padding: 30px; display: flex; flex-direction: column;">
+                    <h4>NEWLETTERS</h4>
+                    <h3>Design News to your box</h3>
+                    <input
+                        style="width: 100%; height:50px; margin-bottom: 12px; padding-left: 30px; box-sizing: border-box; "
+                        placeholder="Email">
+                    <button
+                        style="background-color: black; color: beige; padding: 15.5px 24px; align-self: flex-end;">SIGN
+                        UP</button>
+                </article>
+            </div>
+
+        </section>
+        <div style="display: flex; gap:5px; align-items: center;">
+            <p style=" font-size: 15px;"><STRONG>All articles</STRONG></p>
+            <img src="{{url_for('static', filename = 'Image/Vector.png')}}" alt="">
+        </div>
+        <hr>
+        <div style="display: flex; gap:5px; align-items: center; justify-content: space-between;">
+            <h1 style="font-size: 60px; margin-top: 0px;"><strong>PODCART</strong></h1>
+            <div style="display: flex; gap:5px; align-items: center;">
+                <p style=" font-size: 15px;"><STRONG>All articles</STRONG></p>
+                <img src="{{url_for('static', filename = 'Image/Vector.png')}}" alt="">
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; ">
+            <div style="border: #234343 2px solid; padding: 48px;">
+                <img src="{{url_for('static', filename = 'Image/465.png')}}" alt="">
+                <h5>The Problem of today’s cultural development</h5>
+                <div style="display: flex; gap:10px;">
+                    <p><strong>Date</strong></p>
+                    <p>16.06.2022</p>
+                    <p><strong>Duration</strong></p>
+                    <p>1 minutes</p>
+                </div>
+            </div>
+            <div style="border: #234343 2px solid;border-left: none;border-right: none; padding: 48px;">
+                <img src="{{url_for('static', filename = 'Image/3435.png')}}" alt="">
+                <h5>The hidden messages of Jack Nielson</h5>
+                <div style="display: flex; gap:10px;">
+                    <p><strong>Date</strong></p>
+                    <p>16.06.2022</p>
+                    <p><strong>Duration</strong></p>
+                    <p>1 minutes</p>
+                </div>
+            </div>
+            <div style="border: #234343 2px solid; padding: 48px;">
+                <img src="{{url_for('static', filename = 'Image/podcast-cover.png')}}" alt="">
+                <h5>Behind the scenes of the street art culture</h5>
+                <div style="display: flex; gap:10px;">
+                    <p><strong>Date</strong></p>
+                    <p>16.06.2022</p>
+                    <p><strong>Duration</strong></p>
+                    <p>1 minutes</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

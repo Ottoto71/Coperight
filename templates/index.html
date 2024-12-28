@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body style="font-family: Montserrat;">
+<body style="font-family: Montserrat; margin: 0;">
     <h4 style="border-bottom: 1px #234343 solid; margin-left: 3%; margin-bottom:0%">FYRRE MAGAZINE</h4>
     <div style="margin-left: 3%; margin-right: 3%;">
         <h1 style="font-size: 160px; margin-top:0%;margin-bottom: 0%; text-align: center;"><strong>ART & LIFE</strong>
@@ -59,11 +59,11 @@
             src="{{url_for('static', filename = 'Image/dimitar-belchev-fRBpWLAcWIY-unsplash 1.png')}}" alt="">
         <section style="display: flex; gap: 80px">
             <div class="CrazyLink">
-                { % for row in rows %}
+                {% for row in rows %}
                 <article style="display: flex; gap: 48px; justify-content: space-between;">
-                    <img src="{{url_for('image')}}" alt="">
+                    <img src="{{row['picture']}}" alt="">
                     <div>
-                        <h4><strong>{{row['name']}}</strong></h4>
+                        <h4><strong>{{row['title']}}</strong></h4>
                         <p>{{row['discription']}}</p>
                         <div style="display: flex; justify-content: space-between;align-items: center;">
                             <div style="display: flex; gap:20px;">
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <button
-                                style="border-radius: 35px; padding-left: 40px; padding-right: 40px; height: 32px;">{{row['category']}}</button>
+                                style="border-radius: 35px; padding-left: 40px; padding-right: 40px; height: 32px;">{{row['catergory']}}</button>
                         </div>
                     </div>
                 </article>
@@ -138,48 +138,80 @@
         </div>
         <hr>
         <div style="display: flex; gap:5px; align-items: center; justify-content: space-between;">
-            <h1 style="font-size: 60px; margin-top: 0px;"><strong>PODCART</strong></h1>
+            <h1 style="font-size: 60px; margin-top: 0px;"><strong>PODCAST</strong></h1>
             <div style="display: flex; gap:5px; align-items: center;">
                 <p style=" font-size: 15px;"><STRONG>All articles</STRONG></p>
                 <img src="{{url_for('static', filename = 'Image/Vector.png')}}" alt="">
             </div>
         </div>
         <div style="display: flex; justify-content: center; ">
+            {% for chill in chills %}
             <div style="border: #234343 2px solid; padding: 48px;">
-                <img src="{{url_for('static', filename = 'Image/465.png')}}" alt="">
-                <h5>The Problem of today’s cultural development</h5>
+                <img height="200px" style="width: 100%;aspect-ratio: 1;" src="{{chill['picture']}}" alt="">
+                <h5>{{chill['name']}}</h5>
                 <div style="display: flex; gap:10px;">
                     <p><strong>Date</strong></p>
-                    <p>16.06.2022</p>
+                    <p>{{chill['date']}}</p>
                     <p><strong>Duration</strong></p>
-                    <p>1 minutes</p>
+                    <p>{{chill['duration']}}</p>
                 </div>
             </div>
-            <div style="border: #234343 2px solid;border-left: none;border-right: none; padding: 48px;">
-                <img src="{{url_for('static', filename = 'Image/3435.png')}}" alt="">
-                <h5>The hidden messages of Jack Nielson</h5>
-                <div style="display: flex; gap:10px;">
-                    <p><strong>Date</strong></p>
-                    <p>16.06.2022</p>
-                    <p><strong>Duration</strong></p>
-                    <p>1 minutes</p>
-                </div>
-            </div>
-            <div style="border: #234343 2px solid; padding: 48px;">
-                <img src="{{url_for('static', filename = 'Image/podcast-cover.png')}}" alt="">
-                <h5>Behind the scenes of the street art culture</h5>
-                <div style="display: flex; gap:10px;">
-                    <p><strong>Date</strong></p>
-                    <p>16.06.2022</p>
-                    <p><strong>Duration</strong></p>
-                    <p>1 minutes</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
-
-
+        <h2 style="font-size: 60px; margin-top: 0px;">AUTHORS</h2>
+        <section style="display: flex; width: 100%; flex-wrap: wrap;">
+            {% for author in authors %}
+            <div style="display: flex; flex-shrink: 0; align-items: center; justify-content: space-around; border: #234343 2px solid; padding: 48px; width: 50%; box-sizing: border-box;">
+                <img style="width: 200px;height: 200px; border-radius: 50%; " src="{{author['picture']}}" alt="">
+                <div>
+                    <p><strong>{{author['name']}}</strong></p>
+                    <p><strong>Job: </strong>{{author['job']}}</p>
+                    <p><strong>City: </strong>{{author['city']}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
     </div>
+    <footer style= "background-color: black; color: white; padding-left: 3%; padding-right: 3%; padding-bottom: 10px;">
+        <section style="display: flex; gap: 24px; margin-top: 3%">
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+            <h4>Newsletter+++</h4>
+        </section>
+        <section style = "display: flex; justify-content: space-around; align-items: center;">
+            <h2 style="font-size: 60px; margin-top: 0px; flex:1; text-align: center;">DESIGN NEWS TO YOUR INBOX</h2>
+            <div style="flex:1; text-align: right; ">
+                <input style="box-sizing: border-box;  width:309px; height: 50px; background-color: bisque;" placeholder="Email">
+                <button style="box-sizing: border-box; width: 104px; height: 50px; background-color: blanchedalmond;">Sign Up</button>
+            </div>
+        </section>
+        <section style="display: flex; justify-content: space-around;">
+            <h4 style="border-bottom: 1px #234343 solid; margin-left: 3%; margin-bottom:0%">FYRRE MAGAZINE</h4>
 
+            <div>
+                <p>Art</p>
+                <p>Design</p>
+                <p>Architecture</p>
+            </div>
+            <div>
+                <p>Magazine</p>
+                <p>Podcast</p>
+                <p>Authors</p>
+            </div>
+            <div>
+                <p>Styleguide</p>
+                <p>Licensing</p>
+                <p>Changelog</p>
+            </div>
+        </section>
+            <p style="text-align: left;">@PinewMyak_242_12</p>
+    </footer>
 </body>
-
 </html>

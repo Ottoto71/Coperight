@@ -1,0 +1,16 @@
+.CrazyLink img{
+    width: 240px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.ButtonStyle {
+    border-radius: 8px;
+}
+
+th,td {
+    border:1px solid black;
+}
+.TableStyle {
+    width: 100%;
+    border-collapse: collapse;  
+}

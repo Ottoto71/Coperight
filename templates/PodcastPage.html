@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documents</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <style>
-
-    </style>
+    <title>Document</title>
 </head>
 
 <body style="font-family: Montserrat; margin-left: 3%; margin-right: 3%;">
@@ -31,28 +28,28 @@
     </section>
     <hr>
     <section style="display: flex; justify-content: space-between; align-items: center;">
-        <p><strong>CATERGORIES</strong></p>
-        <div>
-            <button class="ButtonStyle">All</button>
-            <button class="ButtonStyle">Art</button>
-            <button class="ButtonStyle">Street Art</button>
-            <button class="ButtonStyle">Sculptures</button>
-        </div>
-
     </section>
-    <h1 style="font-size: 200px; display: flex; justify-content: center; margin-top:0% ; margin-bottom: 0%;">MAGAZINE
+    <h1 style="font-size: 200px; display: flex; justify-content: center; margin-top:0% ; margin-bottom: 0%;">PODCAST
     </h1>
     <div>
         <img src="{{url_for('static', filename = 'static/Image/Magazine.svg')}}" alt="">
-        <section style="display:flex; flex-wrap: wrap;justify-content: space-between;">
-            {% for magerzine in mager %}
-            <div style="width: 33%; ">
-                <img src="{{magerzine['picture']}}" alt="" height="418px" width="100%" style="object-fit: cover;">
-                <h5>{{magerzine['author']}}</h5>
-                <p><strong>{{magerzine['title']}}</strong></p>
-                <p>{{magerzine['discription']}}</p>
-                
+        <section style="display:flex; flex-wrap: wrap;justify-content: space-between; flex-direction: column;">
+            {% for podcast in pod %}
+
+            <div style="width: 100%; display:flex; justify-content:space-around; align-items: center;">
+                <div style="display: flex; justify-content: space-around; padding-left:0px;">
+                    <p style="padding-right: 64px; align-items: center;"><strong>0{{loop.index}}</strong></p>
+                    <img src="{{podcast['picture']}}" alt="" height="240px" width="240px" style="object-fit: cover;">
+                    <h2 style="width: 100px; padding-left:30px;">{{podcast['name']}}</h2>
+                </div>
+                <p style="width: 100px;"><strong>Date: </strong>{{podcast['date']}}</p>
+                <p style="width: 100px;"><strong>Duration: </strong>{{podcast['duration']}}</p>
+                <div style="display: flex; gap:5px; align-items: center;">
+                    <img src="{{url_for('static', filename = 'Image/Vector.png')}}" alt="">
+                    <p><STRONG>LISTEN</STRONG></p>
+                </div>
             </div>
+            <hr style="color: black;width: 100%; ">
             {% endfor %}
         </section>
         <footer
